@@ -47,8 +47,7 @@ public class TwitterMain{
         mallet.setRelevantClassifierPath(relevantClassifierPath);
         mallet.setServiceClassifierPath(serviceClassifierPath);
         mySQL = new MySQLWrapper(dbDriver, dbUrl);
-//        mongoDB = new MongoDBWrapper();
-//        relevantClassifier = new MyFilteredClassifier();
+       mongoDB = new MongoDBWrapper();
     }
    
     public void getTweets(){  
@@ -121,11 +120,11 @@ public class TwitterMain{
                         
                         for (int i=0; i < urlEntity.length; i++)
                             mySQL.insertURL(urlEntity[i].getExpandedURL(), tweetId);
-                        }
                         
-//                        mongoDB.insertTweet(tweetId, tweetText, tweetDate, tweetSentimentScore, tweetCategory, tweetLatitude, tweetLongitude, 
-//                                            String.valueOf(status.getUser().getId()), status.getUser().getScreenName(), status.getUser().getLocation(), 
-//                                            status.getUser().getFollowersCount(), status.getUser().isVerified(), hashtagList, urlList);
+                        mongoDB.insertTweet(tweetId, tweetText, tweetDate, tweetSentimentScore, tweetCategory, tweetLatitude, tweetLongitude, 
+                                            String.valueOf(status.getUser().getId()), status.getUser().getScreenName(), status.getUser().getLocation(), 
+                                            status.getUser().getFollowersCount(), status.getUser().isVerified(), hashtagList, urlList);
+                        }
                     }  
                 } catch (IOException e) {
                     // TODO Auto-generated catch block
