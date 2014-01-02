@@ -52,7 +52,6 @@ public class MongoDBWrapper {
         dbObj.put("text", tweetText);
         dbObj.put("date", tweetDate);
         dbObj.put("sentimentScore", tweetSentimentScoreInt);
-        //dbObj.put("sentiment", tweetSentiment);
         dbObj.put("service", tweetCategory);
         dbObj.put("latitude", tweetLatitude);
         dbObj.put("longitude", tweetLongitude);
